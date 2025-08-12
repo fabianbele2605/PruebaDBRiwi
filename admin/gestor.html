@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Gestión de Transacciones</title>
+</head>
+<nav><a href="./index.html">Salir</a></nav>
+<body class="p-4">
+
+    <h1 class="mb-4">Gestión de Transacciones</h1>
+
+    <form id="transaccionForm" class="mb-4">
+        <input type="hidden" id="transaction_id">
+
+        <div class="row g-3">
+            <div class="col-md-2">
+                <input type="number" class="form-control" id="identification_number" placeholder="Número de Identificación" required>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="invoice_number" placeholder="Número de Factura" required>
+            </div>
+            <div class="col-md-2">
+                <input type="number" step="any" class="form-control" id="transaction_date_time" placeholder="Fecha y Hora (Excel)" required>
+            </div>
+            <div class="col-md-2">
+                <input type="number" step="0.01" class="form-control" id="transaction_amount" placeholder="Monto Transacción" required>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select" id="transaction_status" required>
+                    <option value="">Estado</option>
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Fallida">Fallida</option>
+                    <option value="Completada">Completada</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select" id="platform_used" required>
+                    <option value="">Plataforma</option>
+                    <option value="Nequi">Nequi</option>
+                    <option value="Daviplata">Daviplata</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <input type="number" step="0.01" class="form-control" id="paid_amount" placeholder="Monto Pagado" required>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="transaction_type" placeholder="Tipo de Transacción" value="Invoice Payment">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">Guardar</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID Transacción</th>
+                <th>Cliente</th>
+                <th>Factura</th>
+                <th>Fecha y Hora</th>
+                <th>Monto Transacción</th>
+                <th>Estado</th>
+                <th>Monto Pagado</th>
+                <th>Plataforma</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaTransacciones">
+        </tbody>
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script type="module" src="../app/js/main.js"></script>
+</body>
+
+</html>
